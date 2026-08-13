@@ -329,7 +329,7 @@ return (
           <p className="section-sub reveal">25th November 2026 · Pandua, West Bengal</p>
           {!countdown.today ? <div className="count-grid reveal-scale">
             {[["days",countdown.days],["hours",countdown.hours],["mins",countdown.mins],["secs",countdown.secs]].map(([label,val]) =>
-              <div className="count-box" key={label}><div className="count-num">{val}</div><div className="count-label">{label === "mins" ? "Minutes" : label === "secs" ? "Seconds" : label[0].toUpperCase()+label.slice(1)}</div></div>)}
+              <div className="count-box" key={label}><div className="count-num">{val}</div><div className="count-label">{label === "mins" ? "Minutes" : label === "secs" ? "Seconds" : String(label)[0].toUpperCase() + String(label).slice(1)}</div></div>)}
           </div> : <p className="count-today">Today Is The Day! ❤️</p>}
         </div>
       </section>
