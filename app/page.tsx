@@ -31,7 +31,7 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 function SafeImage({ src, alt, className }: { src:string; alt:string; className?:string }) {
   const [current, setCurrent] = useState(src);
-  return <img className={className} src={current} alt={alt} loading="lazy" onError={() => setCurrent("/images/placeholder.svg")} />;
+  return <img className={className} src={current} alt={alt} loading="lazy" onError={() => setCurrent("/images/story-1.png")} />;
 }
 
 function Reveal({ children, className="" }: { children:React.ReactNode; className?:string }) {
@@ -56,7 +56,7 @@ const [opened, setOpened] = useState(false);
 const [menu, setMenu] = useState(false);
 const [scrolled, setScrolled] = useState(false);
 const [progress, setProgress] = useState(0);
-
+const [menuOpen, setMenuOpen] = useState(false);
 const [filter, setFilter] = useState("all");
 const [lightbox, setLightbox] = useState<number | null>(null);
 const [attending, setAttending] = useState("");
@@ -375,10 +375,31 @@ return (
         </ul>
         <button className={`nav-toggle ${menu ? "open":""}`} onClick={()=>setMenu(!menu)} aria-label="Menu"><span/><span/><span/></button>
       </nav>
-      <div id="mobile-nav" className={menu ? "open":""}>
-        {["Home","Story","Events","Venue","Gallery","RSVP"].map(x => <a key={x} href={`#${x==="Home"?"hero":x.toLowerCase()}`} onClick={()=>setMenu(false)}>{x}</a>)}
-      </div>
+      
+       {/* ========================================================
+          Mobile Navigation Menu
+          ======================================================== */}
+          <div id="mobile-nav" className={menu ? "open" : ""}>
+  <button
+    className="mobile-nav-close"
+    onClick={() => setMenu(false)}
+    aria-label="Close navigation"
+  >
+    ×
+  </button>
 
+  <nav className="mobile-nav-links">
+    {["Home", "Story", "Events", "Venue", "Gallery", "RSVP"].map((x) => (
+      <a
+        key={x}
+        href={`#${x === "Home" ? "hero" : x.toLowerCase()}`}
+        onClick={() => setMenu(false)}
+      >
+        {x}
+      </a>
+    ))}
+  </nav>
+</div>
       
       {/* ========================================================
           03. HERO
@@ -421,12 +442,12 @@ return (
           <div className="couple-grid">
             <div className="profile-card reveal-left"><div className="profile-photo"><SafeImage src={weddingData.bride.image} alt="Anindita"/></div><div className="profile-body">
               <h3>Anindita</h3><p className="profile-role">The Bride</p><p className="profile-bio">A lover of old libraries, monsoon evenings and her grandmother's recipes. Anindita finds joy in painting, curating playlists for every mood, and long conversations over chai.</p>
-              <div className="profile-hobbies"><span className="chip">Painting</span><span className="chip">Classical Dance</span><span className="chip">Travel</span></div>
+              <div className="profile-hobbies"><span className="chip">Painting</span><span className="chip">Classical Dance</span><span className="chip">Cooking</span></div>
             </div></div>
             <div className="heart-between reveal">♥</div>
             <div className="profile-card reveal-right"><div className="profile-photo"><SafeImage src={weddingData.groom.image} alt="Rocky"/></div><div className="profile-body">
               <h3>Rocky</h3><p className="profile-role">The Groom</p><p className="profile-bio">An architect by profession and a dreamer at heart. Rocky loves cricket on Sunday mornings, exploring hidden cafes, and planning the next big adventure with Anindita.</p>
-              <div className="profile-hobbies"><span className="chip">Architecture</span><span className="chip">Cricket</span><span className="chip">Cooking</span></div>
+              <div className="profile-hobbies"><span className="chip">Doctor</span><span className="chip">Cricket</span><span className="chip">Travel</span></div>
             </div></div>
           </div>
         </div>
@@ -440,12 +461,12 @@ return (
         <div className="container"><p className="eyebrow center reveal">Our Journey</p><h2 className="section-title reveal">Our Story</h2><p className="section-sub reveal">Every love story is beautiful, but ours is our favourite.</p>
           <div className="timeline">
             {[
-              ["August 2019","The First Meeting","A mutual friend's birthday party, a shared laugh over spilled coffee — and a conversation that lasted till the lights came on.","/images/story/story-1.jpg"],
-              ["September 2019","The First Conversation","What started as \"just checking in\" turned into hours of texting about everything and nothing at all.","/images/story/story-2.jpg"],
-              ["November 2019","The First Date","Dinner at a tiny rooftop café overlooking the city lights — neither of us wanted the evening to end.","/images/story/story-3.jpg"],
-              ["March 2024","The Proposal","On a quiet hilltop at sunset, with the sky turning gold, Rocky finally asked the question — and Anindita said yes before he finished it.","/images/story/story-1.jpg"],
-              ["October 2025","The Engagement","Surrounded by both families, we celebrated the promise of forever with laughter, tears and way too many photographs.","/images/story/story-2.jpg"],
-              ["27 November 2026","The Wedding","And now, the chapter we've been waiting for — where we say \"I do\" surrounded by everyone we love.","/images/story/story-3.jpg"]
+              ["August 2019","The First Meeting","A mutual friend's birthday party, a shared laugh over spilled coffee — and a conversation that lasted till the lights came on.","/images/story/story-1.png"],
+              ["September 2019","The First Conversation","What started as \"just checking in\" turned into hours of texting about everything and nothing at all.","/images/story/story-1.png"],
+              ["November 2019","The First Date","Dinner at a tiny rooftop café overlooking the city lights — neither of us wanted the evening to end.","/images/story/story-1.png"],
+              ["March 2024","The Proposal","On a quiet hilltop at sunset, with the sky turning gold, Rocky finally asked the question — and Anindita said yes before he finished it.","/images/story/story-2.png"],
+              ["October 2025","The Engagement","Surrounded by both families, we celebrated the promise of forever with laughter, tears and way too many photographs.","/images/events/engagement.png"],
+              ["27 November 2026","The Wedding","And now, the chapter we've been waiting for — where we say \"I do\" surrounded by everyone we love.","/images/events/wedding.png"]
             ].map((s,i)=><div className={`tl-item ${i%2?"reveal-right":"reveal-left"}`} key={s[1]}><div className="tl-dot"/><div className="tl-card"><div className="tl-photo"><SafeImage src={s[3]} alt={s[1]}/></div><p className="tl-date">{s[0]}</p><h4>{s[1]}</h4><p>{s[2]}</p></div></div>)}
           </div>
         </div>
@@ -463,10 +484,89 @@ return (
       {/* ========================================================
           08. WEDDING EVENTS
           ======================================================== */}
-<section id="events" className="section" style={{background:"var(--ivory-deep)"}}><div className="container">
-        <p className="eyebrow center reveal">Join Us For</p><h2 className="section-title reveal">The Wedding Celebrations</h2><p className="section-sub reveal">Five days of colour, music and joy — we can't wait to share them with you.</p>
-        <div className="events-grid">{eventsData.map(ev=><div className="event-card reveal" key={ev.title}><div className="event-img"><SafeImage src={ev.img} alt={ev.title}/><div className="event-icon">{ev.icon}</div></div><div className="event-body"><h3>{ev.title}</h3><div className="event-meta">📅 {ev.date} &nbsp; ⏰ {ev.time}</div><div className="event-meta">📍 {ev.venue}</div><p className="event-desc">{ev.desc}</p><span className="event-dress">{ev.dress}</span><div className="event-actions"><a className="pill-btn" href={weddingData.wedding.mapsUrl} target="_blank" rel="noreferrer">View Location</a><a className="pill-btn" href={calendarUrl(ev.title,ev.date,ev.time,ev.venue)} target="_blank" rel="noreferrer">Add To Calendar</a></div></div></div>)}</div>
-      </div></section>
+      <section
+  id="events"
+  className="section"
+  style={{ background: "var(--ivory-deep)" }}
+>
+  <div className="container">
+
+    <p className="eyebrow center reveal">
+      Join Us For
+    </p>
+
+    <h2 className="section-title reveal">
+      The Wedding Celebrations
+    </h2>
+
+    <p className="section-sub reveal">
+      Three days of colour, music and joy — we can't wait to share them with you.
+    </p>
+
+    <div className="events-grid">
+
+      {eventsData.map(ev => (
+        <div className="event-card reveal" key={ev.title}>
+
+          <div className="event-img">
+            <SafeImage src={ev.img} alt={ev.title} />
+            <div className="event-icon">{ev.icon}</div>
+          </div>
+
+          <div className="event-body">
+
+            <h3>{ev.title}</h3>
+
+            <div className="event-meta">
+              📅 {ev.date} &nbsp; ⏰ {ev.time}
+            </div>
+
+            <div className="event-meta">
+              📍 {ev.venue}
+            </div>
+
+            <p className="event-desc">
+              {ev.desc}
+            </p>
+
+            <span className="event-dress">
+              {ev.dress}
+            </span>
+
+            <div className="event-actions">
+
+              <a
+                className="pill-btn"
+                href={ev.mapsUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                View Location
+              </a>
+
+              <a
+                className="pill-btn"
+                href={calendarUrl(
+                  ev.title,
+                  ev.date,
+                  ev.time,
+                  ev.venue
+                )}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Add To Calendar
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+      ))}
+
+    </div>
+  </div>
+</section>
 
       
       {/* ========================================================
@@ -476,7 +576,12 @@ return (
         <div className="venue-wrap"><div className="venue-photo reveal-left"><SafeImage src="/images/venue/venue.jpg" alt="Fateh Bagh Palace"/></div><div className="venue-info reveal-right"><h3>Aponjon Marriage Hall</h3><p className="venue-addr">{weddingData.wedding.address}</p>
           <div className="venue-facts"><div className="venue-fact"><h5>Parking</h5><p>Complimentary valet parking available on-site.</p></div><div className="venue-fact"></div><div className="venue-fact"><h5>Transport</h5><p>Easy transpotation from Pandua railway station.</p></div><div className="venue-fact"><h5>Dress</h5><p>Traditional attire recommended for palace grounds.</p></div></div>
           <a href={weddingData.wedding.mapsUrl} target="_blank" rel="noreferrer" className="btn btn-solid" style={{borderColor:"var(--maroon)",background:"var(--maroon)",color:"var(--ivory)"}}>Get Directions →</a>
-          <div className="map-frame"><iframe src="https://www.google.com/maps?q=Fateh+Bagh+Palace+Udaipur&output=embed" loading="lazy" allowFullScreen title="Fateh Bagh Palace map"/></div>
+          <div className="map-frame"><iframe
+  src="https://www.google.com/maps?q=23.0746319,88.2729102&output=embed"
+  loading="lazy"
+  allowFullScreen
+  title="Aponjon Marriage Hall map"
+/></div>
         </div></div>
       </div></section>
 

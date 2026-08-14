@@ -1,4 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
-<defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#5C1224"/><stop offset="1" stop-color="#C39B4E"/></linearGradient></defs>
-<rect width="1200" height="800" fill="url(#g)"/><text x="600" y="390" text-anchor="middle" fill="#FBF6EC" font-family="Georgia" font-size="54">Add Wedding Photo</text>
-<text x="600" y="455" text-anchor="middle" fill="#E7D3A1" font-family="Arial" font-size="24">Replace files in public/images</text></svg>
