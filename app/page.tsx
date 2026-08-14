@@ -69,9 +69,86 @@ const [wishes, setWishes] = useState([
 ]);
 const [music, setMusic] = useState(false);
 const [shareOpen, setShareOpen] = useState(false);
+//Petals animation
+useEffect(() => {
+  const container = document.getElementById("petals");
 
+  if (!container) return;
 
-const weddingDate = new Date("2026-11-25T18:00:00").getTime();
+  container.innerHTML = "";
+
+  const count = window.innerWidth < 600 ? 12 : 24;
+
+  for (let i = 0; i < count; i++) {
+    const petal = document.createElement("span");
+
+    petal.className = "petal";
+
+    const size = Math.random() * 8 + 5;
+    const left = Math.random() * 100;
+    const duration = Math.random() * 7 + 6;
+    const delay = Math.random() * 8;
+    const drift = Math.random() * 160 - 80;
+
+    petal.style.left = `${left}%`;
+    petal.style.width = `${size}px`;
+    petal.style.height = `${size * 1.5}px`;
+    petal.style.animationDuration = `${duration}s`;
+    petal.style.animationDelay = `${delay}s`;
+    petal.style.setProperty("--drift", `${drift}px`);
+
+    container.appendChild(petal);
+  }
+
+  return () => {
+    container.innerHTML = "";
+  };
+}, []);
+//subtle parallax effect
+useEffect(() => {
+  const handleParallax = () => {
+    const hero = document.querySelector(".hero-bg") as HTMLElement;
+
+    if (hero) {
+      const offset = window.scrollY * 0.18;
+      hero.style.transform = `scale(1.08) translateY(${offset}px)`;
+    }
+  };
+
+  window.addEventListener("scroll", handleParallax, {
+    passive: true,
+  });
+
+  return () => {
+    window.removeEventListener("scroll", handleParallax);
+  };
+}, []);
+//Reveal animations
+useEffect(() => {
+  const elements = document.querySelectorAll(
+    ".reveal, .reveal-left, .reveal-right, .reveal-scale"
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: "0px 0px -60px 0px",
+    }
+  );
+
+  elements.forEach((element) => observer.observe(element));
+
+  return () => observer.disconnect();
+}, []);
+//Countdown timer
+const weddingDate = new Date("2026-11-27T18:00:00").getTime();
 
 const [countdown, setCountdown] = useState({
   days: 0,
@@ -170,8 +247,8 @@ VERSION:2.0
 PRODID:-//Anindita & Rocky Wedding//EN
 BEGIN:VEVENT
 UID:Anindita-Rocky-wedding-2026@example.com
-DTSTART:20271125T100000
-DTEND:20271125T130000
+DTSTART:2027127T100000
+DTEND:20271127T130000
 SUMMARY:Anindita & Rocky Wedding
 DESCRIPTION:Wedding ceremony of Anindita and Rocky
 LOCATION:West Bengal, India
@@ -279,7 +356,7 @@ return (
             <div className="env-flap" /><div className="env-seal">A&R</div>
           </div>
           <h1 className="intro-names">Anindita <span className="intro-amp">&amp;</span> Rocky</h1>
-          <p className="intro-date">25th November 2026 &nbsp;•&nbsp; Pandua, West Bengal</p>
+          <p className="intro-date">27th November 2026 &nbsp;•&nbsp; Pandua, West Bengal</p>
           <div className="intro-actions">
             <button className="btn btn-solid" onClick={enter}>Enter Invitation</button>
             <button className="link-skip" onClick={() => setIntro(false)}>Skip Intro</button>
@@ -314,7 +391,7 @@ return (
           <p className="hero-family reveal in">we joyfully invite you</p>
           <h1 className="hero-names reveal in">Anindita<span className="hero-amp">&amp;</span>Rocky</h1>
           <p className="hero-tag reveal in">are getting married</p>
-          <div className="hero-meta reveal in"><span>📅 25th November 2026</span><span>📍 Pandua , West Bengal</span></div>
+          <div className="hero-meta reveal in"><span>📅 27th November 2026</span><span>📍 Pandua , West Bengal</span></div>
           <a href="#story" className="hero-scroll">Explore Our Story ↓</a>
         </div>
       </section>
@@ -326,7 +403,7 @@ return (
 <section id="countdown" className="section">
         <div className="container">
           <p className="eyebrow center reveal">The Big Day</p><h2 className="section-title reveal">Our Countdown To Forever</h2>
-          <p className="section-sub reveal">25th November 2026 · Pandua, West Bengal</p>
+          <p className="section-sub reveal">27th November 2026 · Pandua, West Bengal</p>
           {!countdown.today ? <div className="count-grid reveal-scale">
             {[["days",countdown.days],["hours",countdown.hours],["mins",countdown.mins],["secs",countdown.secs]].map(([label,val]) =>
               <div className="count-box" key={label}><div className="count-num">{val}</div><div className="count-label">{label === "mins" ? "Minutes" : label === "secs" ? "Seconds" : String(label)[0].toUpperCase() + String(label).slice(1)}</div></div>)}
@@ -368,7 +445,7 @@ return (
               ["November 2019","The First Date","Dinner at a tiny rooftop café overlooking the city lights — neither of us wanted the evening to end.","/images/story/story-3.jpg"],
               ["March 2024","The Proposal","On a quiet hilltop at sunset, with the sky turning gold, Rocky finally asked the question — and Anindita said yes before he finished it.","/images/story/story-1.jpg"],
               ["October 2025","The Engagement","Surrounded by both families, we celebrated the promise of forever with laughter, tears and way too many photographs.","/images/story/story-2.jpg"],
-              ["25 November 2026","The Wedding","And now, the chapter we've been waiting for — where we say \"I do\" surrounded by everyone we love.","/images/story/story-3.jpg"]
+              ["27 November 2026","The Wedding","And now, the chapter we've been waiting for — where we say \"I do\" surrounded by everyone we love.","/images/story/story-3.jpg"]
             ].map((s,i)=><div className={`tl-item ${i%2?"reveal-right":"reveal-left"}`} key={s[1]}><div className="tl-dot"/><div className="tl-card"><div className="tl-photo"><SafeImage src={s[3]} alt={s[1]}/></div><p className="tl-date">{s[0]}</p><h4>{s[1]}</h4><p>{s[2]}</p></div></div>)}
           </div>
         </div>
@@ -408,8 +485,8 @@ return (
           10. SAVE THE DATE
           ======================================================== */}
 <section id="savedate" className="section"><div className="container"><p className="eyebrow center reveal" style={{color:"var(--gold-light)"}}>Mark Your Calendar</p><h2 className="section-title reveal">Save The Date</h2>
-        <div className="calendar-card reveal-scale"><div className="calendar-top">November</div><div className="calendar-day">25</div><div className="calendar-bottom">Tuesday, 2026</div></div>
-        <div className="reveal" style={{display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap"}}><a href={calendarUrl("Anindita & Rocky Wedding","25 Nov 2026","10:00 AM",weddingData.wedding.venue)} className="btn btn-solid" target="_blank" rel="noreferrer">Add To Google Calendar</a><button onClick={downloadICS} className="btn">Download .ics</button></div>
+        <div className="calendar-card reveal-scale"><div className="calendar-top">November</div><div className="calendar-day">27</div><div className="calendar-bottom">Tuesday, 2026</div></div>
+        <div className="reveal" style={{display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap"}}><a href={calendarUrl("Anindita & Rocky Wedding","27 Nov 2026","10:00 AM",weddingData.wedding.venue)} className="btn btn-solid" target="_blank" rel="noreferrer">Add To Google Calendar</a><button onClick={downloadICS} className="btn">Download .ics</button></div>
       </div></section>
 
       
@@ -506,7 +583,7 @@ return (
       {/* ========================================================
           20. CLOSING + FOOTER
           ======================================================== */}
-<section id="closing"><div className="closing-bg"/><div className="closing-content"><h2 className="reveal">Anindita &amp; Rocky</h2><span className="script reveal">"Forever begins here."</span><p className="closing-date reveal">25th November 2026</p><p className="closing-thanks reveal">Thank you for being a part of our journey. ❤️</p></div></section>
+<section id="closing"><div className="closing-bg"/><div className="closing-content"><h2 className="reveal">Anindita &amp; Rocky</h2><span className="script reveal">"Forever begins here."</span><p className="closing-date reveal">27th November 2026</p><p className="closing-thanks reveal">Thank you for being a part of our journey. ❤️</p></div></section>
       <footer><span className="script">Anindita &amp; Rocky</span>With love, always. · #AninditaMeetsRocky</footer>
 
       

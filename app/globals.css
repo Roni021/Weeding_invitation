@@ -88,26 +88,173 @@ h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.1;}
 .reveal-right.in{opacity:1;transform:translateX(0);}
 .reveal-scale{opacity:0;transform:scale(.92);transition:opacity 1s var(--ease), transform 1s var(--ease);}
 .reveal-scale.in{opacity:1;transform:scale(1);} */
+/* ============================= SCROLL REVEAL ANIMATIONS ============================= */
+
 .reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  transition:
+    opacity 0.9s var(--ease),
+    transform 0.9s var(--ease);
+}
+
+.reveal.in {
   opacity: 1;
   transform: translateY(0);
 }
 
 .reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition:
+    opacity 1s var(--ease),
+    transform 1s var(--ease);
+}
+
+.reveal-left.in {
   opacity: 1;
   transform: translateX(0);
 }
 
 .reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition:
+    opacity 1s var(--ease),
+    transform 1s var(--ease);
+}
+
+.reveal-right.in {
   opacity: 1;
   transform: translateX(0);
 }
 
 .reveal-scale {
+  opacity: 0;
+  transform: scale(0.88);
+  transition:
+    opacity 1s var(--ease),
+    transform 1s var(--ease);
+}
+
+.reveal-scale.in {
   opacity: 1;
   transform: scale(1);
 }
 
+/* ============================= HERO SECTION ============================= */
+.hero-content .eyebrow {
+  animation: fadeUp 1s var(--ease) 0.5s both;
+}
+
+.hero-family {
+  animation: fadeUp 1s var(--ease) 0.7s both;
+}
+
+.hero-names {
+  animation: heroNames 1.4s var(--ease) 0.9s both;
+}
+
+.hero-tag {
+  animation: fadeUp 1s var(--ease) 1.2s both;
+}
+
+.hero-meta {
+  animation: fadeUp 1s var(--ease) 1.4s both;
+}
+
+.hero-scroll {
+  animation:
+    fadeUp 1s var(--ease) 1.7s both,
+    bob 2.6s ease-in-out 2.7s infinite;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroNames {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+    letter-spacing: .15em;
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    letter-spacing: .01em;
+  }
+}
+/* ============================= STAGGER ANIMATIONS ============================= */
+
+.events-grid .event-card:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.events-grid .event-card:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.events-grid .event-card:nth-child(3) {
+  transition-delay: 0.25s;
+}
+
+.events-grid .event-card:nth-child(4) {
+  transition-delay: 0.35s;
+}
+
+.events-grid .event-card:nth-child(5) {
+  transition-delay: 0.45s;
+}
+
+.family-grid .family-card:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.family-grid .family-card:nth-child(2) {
+  transition-delay: 0.25s;
+}
+
+.travel-grid .travel-card:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.travel-grid .travel-card:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.travel-grid .travel-card:nth-child(3) {
+  transition-delay: 0.25s;
+}
+
+.travel-grid .travel-card:nth-child(4) {
+  transition-delay: 0.35s;
+}
+
+.dress-grid .dress-card:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.dress-grid .dress-card:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.dress-grid .dress-card:nth-child(3) {
+  transition-delay: 0.25s;
+}
+
+.dress-grid .dress-card:nth-child(4) {
+  transition-delay: 0.35s;
+}
 
 /* ============================= SCROLL PROGRESS ============================= */
 #scroll-progress{
@@ -653,7 +800,29 @@ footer .script{display:block;font-size:1.2rem;color:var(--gold-light);margin-bot
   .nav-links{display:none;}
   .nav-toggle{display:flex;}
 }
+@media (max-width: 600px) {
+  .reveal-left,
+  .reveal-right {
+    transform: translateY(30px);
+  }
 
+  .reveal-left.in,
+  .reveal-right.in {
+    transform: translateY(0);
+  }
+
+  .hero-bg {
+    animation-duration: 20s;
+  }
+
+  .profile-card:hover,
+  .event-card:hover,
+  .family-card:hover,
+  .dress-card:hover,
+  .tl-card:hover {
+    transform: none;
+  }
+}
 /* Next.js conversion helpers */
 html { scroll-behavior: smooth; }
 button { color: inherit; }

@@ -16,8 +16,8 @@ export const weddingData = {
   },
 
   wedding: {
-    date: "2026-11-25T10:00:00",
-    dateDisplay: "25th November 2026",
+    date: "2026-11-27T10:00:00",
+    dateDisplay: "27th November 2026",
     venue: "Pandua, West Bengal",
     address: " Pandua, West Bengal",
     mapsUrl:
@@ -31,7 +31,7 @@ export const eventsData = [
   {
     icon: "💍",
     title: "Engagement",
-    date: "25 Nov 2026",
+    date: "2 Nov 2026",
     time: "6:00 PM",
     venue: "Pandua, West Bengal",
     desc: "An intimate ring ceremony with close family.",
@@ -41,7 +41,7 @@ export const eventsData = [
   {
     icon: "🌼",
     title: "Haldi",
-    date: "25 Nov 2026",
+    date: "27 Nov 2026",
     time: "10:00 AM",
     venue: "Pandua, West Bengal",
     desc: "A joyful turmeric ceremony full of colour and laughter.",
@@ -51,7 +51,7 @@ export const eventsData = [
   {
     icon: "🌿",
     title: "Mehendi",
-    date: "25 Nov 2026",
+    date: "27 Nov 2026",
     time: "4:00 PM",
     venue: "Pandua, West Bengal",
     desc: "Intricate henna, live music and festive bites.",
@@ -61,7 +61,7 @@ export const eventsData = [
   {
     icon: "🎶",
     title: "Sangeet",
-    date: "25 Nov 2026",
+    date: "27 Nov 2026",
     time: "8:00 PM",
     venue: "Pandua, West Bengal",
     desc: "A night of dance performances and celebration.",
@@ -71,7 +71,7 @@ export const eventsData = [
   {
     icon: "🪔",
     title: "Wedding Ceremony",
-    date: "25 Nov 2026",
+    date: "27 Nov 2026",
     time: "10:00 AM",
     venue: "Pandua, West Bengal",
     desc: "Sacred vows exchanged under the mandap at sunrise.",
@@ -81,7 +81,7 @@ export const eventsData = [
   {
     icon: "🥂",
     title: "Reception",
-    date: "25 Nov 2026",
+    date: "27 Nov 2026",
     time: "7:30 PM",
     venue: "Pandua, West Bengal",
     desc: "An elegant evening of dinner, toasts and dancing.",
@@ -108,5 +108,5 @@ export const storyData = [
   ["November 2019", "The First Date", "Dinner at a tiny rooftop café overlooking the city lights — neither of us wanted the evening to end.", "/images/story/story-3.jpg"],
   ["March 2024", "The Proposal", "On a quiet hilltop at sunset, with the sky turning gold, Rocky finally asked the question — and Anindita said yes before he finished it.", "/images/story/story-1.jpg"],
   ["October 2025", "The Engagement", "Surrounded by both families, we celebrated the promise of forever with laughter, tears and way too many photographs.", "/images/story/story-2.jpg"],
-  ["14 February 2027", "The Wedding", "And now, the chapter we've been waiting for — where we say \"I do\" surrounded by everyone we love.", "/images/story/story-3.jpg"],
+  ["27 November 2026", "The Wedding", "And now, the chapter we've been waiting for — where we say \"I do\" surrounded by everyone we love.", "/images/story/story-3.jpg"],
 ];
