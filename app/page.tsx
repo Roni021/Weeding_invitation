@@ -380,25 +380,30 @@ return (
           Mobile Navigation Menu
           ======================================================== */}
           <div id="mobile-nav" className={menu ? "open" : ""}>
-  <button
+  {/* <button
     className="mobile-nav-close"
     onClick={() => setMenu(false)}
     aria-label="Close navigation"
   >
     ×
-  </button>
+  </button> */}
 
-  <nav className="mobile-nav-links">
-    {["Home", "Story", "Events", "Venue", "Gallery", "RSVP"].map((x) => (
-      <a
-        key={x}
-        href={`#${x === "Home" ? "hero" : x.toLowerCase()}`}
-        onClick={() => setMenu(false)}
-      >
-        {x}
-      </a>
-    ))}
-  </nav>
+  <div className="mobile-nav-links">
+    {["Home", "Story", "Events", "Venue", "Gallery", "RSVP"].map((x) => {
+      const target = x === "Home" ? "hero" : x.toLowerCase();
+
+      return (
+        <a
+          key={x}
+          href={`#${target}`}
+          onClick={() => setMenu(false)}
+          className="mobile-nav-link"
+        >
+          {x}
+        </a>
+      );
+    })}
+  </div>
 </div>
       
       {/* ========================================================
