@@ -446,7 +446,7 @@ return (
             </div></div>
             <div className="heart-between reveal">♥</div>
             <div className="profile-card reveal-right"><div className="profile-photo"><SafeImage src={weddingData.groom.image} alt="Rocky"/></div><div className="profile-body">
-              <h3>Rocky</h3><p className="profile-role">The Groom</p><p className="profile-bio">An architect by profession and a dreamer at heart. Rocky loves cricket on Sunday mornings, exploring hidden cafes, and planning the next big adventure with Anindita.</p>
+              <h3>Rocky</h3><p className="profile-role">The Groom</p><p className="profile-bio">An doctor by profession and a dreamer at heart. Rocky loves cricket on Sunday mornings, exploring hidden cafes, and planning the next big adventure with Anindita.</p>
               <div className="profile-hobbies"><span className="chip">Doctor</span><span className="chip">Cricket</span><span className="chip">Travel</span></div>
             </div></div>
           </div>
@@ -631,7 +631,7 @@ return (
       {/* ========================================================
           14. DRESS CODE
           ======================================================== */}
-<section id="dresscode" className="section"><div className="container"><p className="eyebrow center reveal">Come Dressed To Celebrate</p><h2 className="section-title reveal">What To Wear</h2>
+<section id="dresscode" className="section"><div className="container"><p className="eyebrow center reveal">Come Dressed To Celebrate</p><h2 className="section-title reveal">Match your vibe</h2>
         <div className="dress-grid">{[["#E7B94C","Haldi","Bright yellows & florals. Casual, comfortable & fun."],["#2E7D64","Mehendi","Vibrant greens, pastels & playful prints."],["#8C1D2B","Wedding","Traditional Indian formals — reds, maroons & gold."],["#1B2A4A","Reception","Elegant evening wear — jewel tones encouraged."]].map(d=><div className="dress-card reveal" key={d[1]}><div className="dress-swatch" style={{background:d[0]}}/><h4>{d[1]}</h4><p>{d[2]}</p></div>)}</div>
       </div></section>
 
