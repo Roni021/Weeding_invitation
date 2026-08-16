@@ -16,8 +16,8 @@ export const weddingData = {
   },
 
   wedding: {
-    date: "2026-11-27T10:00:00",
-    dateDisplay: "27th November 2026",
+    date: "2026-11-25T10:00:00",
+    dateDisplay: "25th November 2026",
     venue: "Pandua, West Bengal",
     address: " Pandua, West Bengal",
     mapsUrl: "https://maps.app.goo.gl/bkd5zHgPvDQn3u3f7?g_st=aw",
@@ -30,7 +30,7 @@ export const eventsData = [
   {
     icon: "💍",
     title: "Engagement",
-    date: "2 Nov 2026",
+    date: "25 Nov 2026",
     time: "6:00 PM",
     venue: "Naserkuli, Naba Raynagar, Gangnapur, Nadia, West Bengal 741238",
     desc: "An intimate ring ceremony with close family.",
@@ -41,7 +41,7 @@ export const eventsData = [
   {
     icon: "🌼",
     title: "Haldi",
-    date: "27 Nov 2026",
+    date: "25 Nov 2026",
     time: "10:00 AM",
     venue: "Naserkuli, Naba Raynagar, Gangnapur, Nadia, West Bengal 741238",
     desc: "A joyful turmeric ceremony full of colour and laughter.",
@@ -52,7 +52,7 @@ export const eventsData = [
   {
     icon: "🌿",
     title: "Mehendi",
-    date: "27 Nov 2026",
+    date: "24 Nov 2026",
     time: "4:00 PM",
     venue: "Naserkuli, Naba Raynagar, Gangnapur, Nadia, West Bengal 741238",
     desc: "Intricate henna, live music and festive bites.",
@@ -63,7 +63,7 @@ export const eventsData = [
   {
     icon: "🎶",
     title: "Sangeet",
-    date: "27 Nov 2026",
+    date: "24 Nov 2026",
     time: "8:00 PM",
     venue: "Naserkuli, Naba Raynagar, Gangnapur, Nadia, West Bengal 741238",
     desc: "A night of dance performances and celebration.",
@@ -74,7 +74,7 @@ export const eventsData = [
   {
     icon: "🪔",
     title: "Wedding Ceremony",
-    date: "27 Nov 2026",
+    date: "25 Nov 2026",
     time: "10:00 AM",
     venue: "Naserkuli, Naba Raynagar, Gangnapur, Nadia, West Bengal 741238",
     desc: "Sacred vows exchanged under the mandap at sunrise.",

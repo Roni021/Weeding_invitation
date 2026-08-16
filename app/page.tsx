@@ -578,7 +578,7 @@ return (
           09. VENUE
           ======================================================== */}
 <section id="venue" className="section"><div className="container"><p className="eyebrow center reveal">Where We Celebrate</p><h2 className="section-title reveal">The Venue</h2>
-        <div className="venue-wrap"><div className="venue-photo reveal-left"><SafeImage src="/images/venue/venue.jpg" alt="Fateh Bagh Palace"/></div><div className="venue-info reveal-right"><h3>Aponjon Marriage Hall</h3><p className="venue-addr">{weddingData.wedding.address}</p>
+        <div className="venue-wrap"><div className="venue-photo reveal-left"><SafeImage src="/images/venue/venue.png" alt="Aponjon Marriage Hall"/></div><div className="venue-info reveal-right"><h3>Aponjon Marriage Hall</h3><p className="venue-addr">{weddingData.wedding.address}</p>
           <div className="venue-facts"><div className="venue-fact"><h5>Parking</h5><p>Complimentary valet parking available on-site.</p></div><div className="venue-fact"></div><div className="venue-fact"><h5>Transport</h5><p>Easy transpotation from Pandua railway station.</p></div><div className="venue-fact"><h5>Dress</h5><p>Traditional attire recommended for palace grounds.</p></div></div>
           <a href={weddingData.wedding.mapsUrl} target="_blank" rel="noreferrer" className="btn btn-solid" style={{borderColor:"var(--maroon)",background:"var(--maroon)",color:"var(--ivory)"}}>Get Directions →</a>
           <div className="map-frame"><iframe
