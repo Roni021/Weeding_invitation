@@ -75,7 +75,7 @@ export const eventsData = [
     icon: "🪔",
     title: "Wedding Ceremony",
     date: "25 Nov 2026",
-    time: "10:00 AM",
+    time: "10:00 PM",
     venue: "Naserkuli, Naba Raynagar, Gangnapur, Nadia, West Bengal 741238",
     desc: "Sacred vows exchanged under the mandap at sunrise.",
     dress: "Traditional Formal",

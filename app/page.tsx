@@ -148,7 +148,7 @@ useEffect(() => {
   return () => observer.disconnect();
 }, []);
 //Countdown timer
-const weddingDate = new Date("2026-11-27T18:00:00").getTime();
+const weddingDate = new Date("2026-11-25T18:00:00").getTime();
 
 const [countdown, setCountdown] = useState({
   days: 0,
@@ -356,7 +356,7 @@ return (
             <div className="env-flap" /><div className="env-seal">A&R</div>
           </div>
           <h1 className="intro-names">Anindita <span className="intro-amp">&amp;</span> Rocky</h1>
-          <p className="intro-date">27th November 2026 &nbsp;•&nbsp; Pandua, West Bengal</p>
+          <p className="intro-date">25th November 2026 &nbsp;•&nbsp; Pandua, West Bengal</p>
           <div className="intro-actions">
             <button className="btn btn-solid" onClick={enter}>Enter Invitation</button>
             <button className="link-skip" onClick={() => setIntro(false)}>Skip Intro</button>
@@ -429,7 +429,7 @@ return (
 <section id="countdown" className="section">
         <div className="container">
           <p className="eyebrow center reveal">The Big Day</p><h2 className="section-title reveal">Our Countdown To Forever</h2>
-          <p className="section-sub reveal">27th November 2026 · Pandua, West Bengal</p>
+          <p className="section-sub reveal">25th November 2026 · Pandua, West Bengal</p>
           {!countdown.today ? <div className="count-grid reveal-scale">
             {[["days",countdown.days],["hours",countdown.hours],["mins",countdown.mins],["secs",countdown.secs]].map(([label,val]) =>
               <div className="count-box" key={label}><div className="count-num">{val}</div><div className="count-label">{label === "mins" ? "Minutes" : label === "secs" ? "Seconds" : String(label)[0].toUpperCase() + String(label).slice(1)}</div></div>)}
@@ -471,7 +471,7 @@ return (
               ["November 2019","The First Date","Dinner at a tiny rooftop café overlooking the city lights — neither of us wanted the evening to end.","/images/story/story-1.png"],
               ["March 2024","The Proposal","On a quiet hilltop at sunset, with the sky turning gold, Rocky finally asked the question — and Anindita said yes before he finished it.","/images/story/story-2.png"],
               ["October 2025","The Engagement","Surrounded by both families, we celebrated the promise of forever with laughter, tears and way too many photographs.","/images/events/engagement.png"],
-              ["27 November 2026","The Wedding","And now, the chapter we've been waiting for — where we say \"I do\" surrounded by everyone we love.","/images/events/wedding.png"]
+              ["25 November 2026","The Wedding","And now, the chapter we've been waiting for — where we say \"I do\" surrounded by everyone we love.","/images/events/wedding.png"]
             ].map((s,i)=><div className={`tl-item ${i%2?"reveal-right":"reveal-left"}`} key={s[1]}><div className="tl-dot"/><div className="tl-card"><div className="tl-photo"><SafeImage src={s[3]} alt={s[1]}/></div><p className="tl-date">{s[0]}</p><h4>{s[1]}</h4><p>{s[2]}</p></div></div>)}
           </div>
         </div>
@@ -596,7 +596,7 @@ return (
           ======================================================== */}
 <section id="savedate" className="section"><div className="container"><p className="eyebrow center reveal" style={{color:"var(--gold-light)"}}>Mark Your Calendar</p><h2 className="section-title reveal">Save The Date</h2>
         <div className="calendar-card reveal-scale"><div className="calendar-top">November</div><div className="calendar-day">27</div><div className="calendar-bottom">Tuesday, 2026</div></div>
-        <div className="reveal" style={{display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap"}}><a href={calendarUrl("Anindita & Rocky Wedding","27 Nov 2026","10:00 AM",weddingData.wedding.venue)} className="btn btn-solid" target="_blank" rel="noreferrer">Add To Google Calendar</a><button onClick={downloadICS} className="btn">Download .ics</button></div>
+        <div className="reveal" style={{display:"flex",gap:14,justifyContent:"center",flexWrap:"wrap"}}><a href={calendarUrl("Anindita & Rocky Wedding","25 Nov 2026","10:00 AM",weddingData.wedding.venue)} className="btn btn-solid" target="_blank" rel="noreferrer">Add To Google Calendar</a><button onClick={downloadICS} className="btn">Download .ics</button></div>
       </div></section>
 
       
@@ -645,11 +645,11 @@ return (
           15. RSVP
           ======================================================== */}
 <section id="rsvp" className="section"><div className="container"><p className="eyebrow center reveal">Kindly Respond</p><h2 className="section-title reveal">Will You Join Us?</h2><p className="section-sub reveal">Your presence would mean the world to us.</p>
-        {!rsvpSent ? <form className="rsvp-form reveal-scale" onSubmit={submitRSVP}><div className="form-row"><div className="field"><label>Full Name</label><input name="name" required/></div><div className="field"><label>Email</label><input name="email" type="email" required/></div></div>
-        <div className="form-row"><div className="field"><label>Phone</label><input name="phone" type="tel" required/></div><div className="field"><label>Number Of Guests</label><select name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div></div>
+        {!rsvpSent ? <form className="rsvp-form reveal-scale" onSubmit={submitRSVP}><div className="form-row"><div className="field"><label>Full Name</label><input name="name" required/></div><div className="field"><label>Email</label><input name="email" type="email" /></div></div>
+        <div className="form-row"><div className="field"><label>Phone</label><input name="phone" type="tel"/></div><div className="field"><label>Number Of Guests</label><select name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div></div>
         <div className="field"><label>Attending?</label><div className="attend-toggle"><button type="button" className={`attend-opt ${attending==="yes"?"selected":""}`} onClick={()=>setAttending("yes")}>Yes, I'll be there</button><button type="button" className={`attend-opt ${attending==="no"?"selected":""}`} onClick={()=>setAttending("no")}>Sadly, can't make it</button></div></div>
         <div className="field"><label>Events Attending</label><div className="event-checks">{["haldi","mehendi","sangeet","wedding","reception"].map(x=><button type="button" key={x} className={`event-check ${selectedEvents.includes(x)?"selected":""}`} onClick={()=>setSelectedEvents(p=>p.includes(x)?p.filter(v=>v!==x):[...p,x])}>{x[0].toUpperCase()+x.slice(1)}</button>)}</div></div>
-        <div className="field"><label>Dietary Preference</label><select name="diet"><option>Vegetarian</option><option>Non-Vegetarian</option><option>Vegan</option><option>Jain</option><option>Other</option></select></div>
+        <div className="field"><label>Dietary Preference</label><select name="diet"><option>Vegetarian</option><option>Non-Vegetarian</option></select></div>
         <div className="field"><label>Message For Us</label><textarea name="message" rows={3} placeholder="Leave a note for the couple..."/></div>
         <button type="submit" className="btn rsvp-submit">Confirm Attendance ❤️</button></form> :
         <div id="rsvp-success" className="show"><div className="success-heart">❤️</div><h3 style={{color:"var(--maroon-deep)",marginTop:10}}>Thank You!</h3><p style={{color:"var(--ink-soft)",marginTop:8}}>We can't wait to celebrate with you.</p></div>}
