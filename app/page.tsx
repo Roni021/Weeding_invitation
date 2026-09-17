@@ -612,7 +612,7 @@ return (
 
       
       {/* Gallery lightbox */}
-{lightbox !== null && <div id="lightbox" className="open" onClick={e=>{if(e.target===e.currentTarget)setLightbox(null)}}><button className="lb-close" onClick={()=>setLightbox(null)}>&times;</button><button className="lb-prev" onClick={()=>setLightbox((lightbox-1+galleryData.length)%galleryData.length)}>&#8249;</button><div><SafeImage src={galleryData[lightbox].src} alt={galleryData[lightbox].cap}/><p className="lb-cap">{galleryData[lightbox].cap}</p></div><button className="lb-next" onClick={()=>setLightbox((lightbox+1)%galleryData.length)}>&#8250;</button></div>}
+{/* {lightbox !== null && <div id="lightbox" className="open" onClick={e=>{if(e.target===e.currentTarget)setLightbox(null)}}><button className="lb-close" onClick={()=>setLightbox(null)}>&times;</button><button className="lb-prev" onClick={()=>setLightbox((lightbox-1+galleryData.length)%galleryData.length)}>&#8249;</button><div><SafeImage src={galleryData[lightbox].src} alt={galleryData[lightbox].cap}/><p className="lb-cap">{galleryData[lightbox].cap}</p></div><button className="lb-next" onClick={()=>setLightbox((lightbox+1)%galleryData.length)}>&#8250;</button></div>} */}
 
       
       {/* ========================================================
