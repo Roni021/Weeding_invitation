@@ -26,7 +26,8 @@
 // ============================================================
 
 "use client";
-import { weddingData,eventsData,galleryData,storyData } from "../data/wedding";
+import { weddingData,eventsData } from "../data/wedding";
+import FloralAnimation from "../components/FloralAnimation";
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 
 function SafeImage({ src, alt, className }: { src:string; alt:string; className?:string }) {
@@ -276,10 +277,10 @@ END:VCALENDAR`;
 // GALLERY
 // ============================================================
 
-const visibleGallery =
-  filter === "all"
-    ? galleryData
-    : galleryData.filter((item) => item.cat === filter);
+// const visibleGallery =
+//   filter === "all"
+//     ? galleryData
+//     : galleryData.filter((item) => item.cat === filter);
 
 // ============================================================
 // RSVP
@@ -340,6 +341,7 @@ const toggleMusic = async () => {
 
 return (
     <>
+     <FloralAnimation />
       {/* ========================================================
           GLOBAL UI
           ======================================================== */}
@@ -462,7 +464,7 @@ return (
       {/* ========================================================
           06. OUR STORY
           ======================================================== */}
-<section id="story" className="section" style={{background:"var(--ivory-deep)"}}>
+{/* <section id="story" className="section" style={{background:"var(--ivory-deep)"}}>
         <div className="container"><p className="eyebrow center reveal">Our Journey</p><h2 className="section-title reveal">Our Story</h2><p className="section-sub reveal">Every love story is beautiful, but ours is our favourite.</p>
           <div className="timeline">
             {[
@@ -475,15 +477,15 @@ return (
             ].map((s,i)=><div className={`tl-item ${i%2?"reveal-right":"reveal-left"}`} key={s[1]}><div className="tl-dot"/><div className="tl-card"><div className="tl-photo"><SafeImage src={s[3]} alt={s[1]}/></div><p className="tl-date">{s[0]}</p><h4>{s[1]}</h4><p>{s[2]}</p></div></div>)}
           </div>
         </div>
-      </section>
+      </section> */}
 
       
       {/* ========================================================
           07. PHOTO STORY
           ======================================================== */}
-<section id="photostory" className="section"><div className="container">
+{/* <section id="photostory" className="section"><div className="container">
         {[["/images/couple/couple-1.jpg","And then, everything changed."],["/images/couple/couple-2.jpg","Two hearts. One journey."],["/images/story/story-1.jpg","A thousand memories, one beautiful story."]].map((x,i)=><div className="photostory-block" key={x[1]}><div className={`ps-img ${i%2?"reveal-right":"reveal-left"}`}><SafeImage src={x[0]} alt={x[1]}/></div><div className={`ps-text ${i%2?"reveal-left":"reveal-right"}`}><p className="script">"{x[1]}"</p></div></div>)}
-      </div></section>
+      </div></section> */}
 
       
       {/* ========================================================
@@ -603,10 +605,10 @@ return (
       {/* ========================================================
           11. GALLERY
           ======================================================== */}
-<section id="gallery" className="section"><div className="container"><p className="eyebrow center reveal">Frame By Frame</p><h2 className="section-title reveal">Captured Moments</h2>
+{/* <section id="gallery" className="section"><div className="container"><p className="eyebrow center reveal">Frame By Frame</p><h2 className="section-title reveal">Captured Moments</h2>
         <div className="gallery-filters reveal">{["all","us","pre-wedding","family","memories"].map(f=><button key={f} className={`filter-btn ${filter===f?"active":""}`} onClick={()=>setFilter(f)}>{f==="pre-wedding"?"Pre-Wedding":f[0].toUpperCase()+f.slice(1)}</button>)}</div>
         <div className="masonry">{visibleGallery.map((g,i)=><div className="g-item" key={g.src} onClick={()=>setLightbox(galleryData.indexOf(g))}><SafeImage src={g.src} alt={g.cap}/><div className="g-cap">{g.cap}</div></div>)}</div>
-      </div></section>
+      </div></section> */}
 
       
       {/* Gallery lightbox */}
@@ -644,7 +646,7 @@ return (
       {/* ========================================================
           15. RSVP
           ======================================================== */}
-<section id="rsvp" className="section"><div className="container"><p className="eyebrow center reveal">Kindly Respond</p><h2 className="section-title reveal">Will You Join Us?</h2><p className="section-sub reveal">Your presence would mean the world to us.</p>
+{/* <section id="rsvp" className="section"><div className="container"><p className="eyebrow center reveal">Kindly Respond</p><h2 className="section-title reveal">Will You Join Us?</h2><p className="section-sub reveal">Your presence would mean the world to us.</p>
         {!rsvpSent ? <form className="rsvp-form reveal-scale" onSubmit={submitRSVP}><div className="form-row"><div className="field"><label>Full Name</label><input name="name" required/></div><div className="field"><label>Email</label><input name="email" type="email" /></div></div>
         <div className="form-row"><div className="field"><label>Phone</label><input name="phone" type="tel"/></div><div className="field"><label>Number Of Guests</label><select name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select></div></div>
         <div className="field"><label>Attending?</label><div className="attend-toggle"><button type="button" className={`attend-opt ${attending==="yes"?"selected":""}`} onClick={()=>setAttending("yes")}>Yes, I'll be there</button><button type="button" className={`attend-opt ${attending==="no"?"selected":""}`} onClick={()=>setAttending("no")}>Sadly, can't make it</button></div></div>
@@ -653,7 +655,7 @@ return (
         <div className="field"><label>Message For Us</label><textarea name="message" rows={3} placeholder="Leave a note for the couple..."/></div>
         <button type="submit" className="btn rsvp-submit">Confirm Attendance ❤️</button></form> :
         <div id="rsvp-success" className="show"><div className="success-heart">❤️</div><h3 style={{color:"var(--maroon-deep)",marginTop:10}}>Thank You!</h3><p style={{color:"var(--ink-soft)",marginTop:8}}>We can't wait to celebrate with you.</p></div>}
-      </div></section>
+      </div></section> */}
 
       
       {/* ========================================================

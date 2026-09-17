@@ -1149,3 +1149,211 @@ button { color: inherit; }
     display: none;
   }
 }
+
+/* =========================================================
+   FULL PAGE FLORAL ANIMATION
+   ========================================================= */
+
+.floral-animation {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 20;
+}
+
+/* ---------------------------------------------------------
+   Floating petals
+   --------------------------------------------------------- */
+
+.floral-petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.floating-petal {
+  position: absolute;
+  width: 9px;
+  height: 14px;
+  border-radius: 80% 20% 80% 20%;
+  background: rgba(155, 38, 55, 0.55);
+  filter: blur(0.2px);
+  transform-origin: center;
+}
+
+/* ---------------------------------------------------------
+   Floral corners
+   --------------------------------------------------------- */
+
+.floral-corner {
+  position: absolute;
+  width: 170px;
+  height: 170px;
+  opacity: 0.8;
+}
+
+.floral-left {
+  top: 20px;
+  left: 10px;
+}
+
+.floral-right {
+  top: 20px;
+  right: 10px;
+  transform: scaleX(-1);
+}
+
+.flower {
+  position: absolute;
+  font-size: 55px;
+  line-height: 1;
+  animation: flowerFloat 5s ease-in-out infinite;
+}
+
+.flower-1 {
+  top: 10px;
+  left: 10px;
+}
+
+.flower-2 {
+  top: 65px;
+  left: 65px;
+  font-size: 42px;
+  animation-delay: 1s;
+}
+
+.leaf {
+  position: absolute;
+  font-size: 35px;
+  opacity: 0.75;
+}
+
+.leaf-1 {
+  top: 30px;
+  left: 85px;
+  transform: rotate(-35deg);
+}
+
+.leaf-2 {
+  top: 85px;
+  left: 25px;
+  transform: rotate(35deg);
+}
+
+/* ---------------------------------------------------------
+   Side floral decoration
+   --------------------------------------------------------- */
+
+.floral-side {
+  position: absolute;
+  top: 45%;
+  font-size: 42px;
+  opacity: 0.4;
+  animation: sideFloat 6s ease-in-out infinite;
+}
+
+.floral-side-left {
+  left: 10px;
+}
+
+.floral-side-right {
+  right: 10px;
+}
+
+/* ---------------------------------------------------------
+   Animations
+   --------------------------------------------------------- */
+
+@keyframes flowerFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-8px) rotate(5deg);
+  }
+}
+
+@keyframes sideFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* ---------------------------------------------------------
+   Mobile
+   --------------------------------------------------------- */
+
+@media (max-width: 600px) {
+  .floral-corner {
+    width: 100px;
+    height: 100px;
+    opacity: 0.65;
+  }
+
+  .floral-left {
+    top: 10px;
+    left: -5px;
+  }
+
+  .floral-right {
+    top: 10px;
+    right: -5px;
+  }
+
+  .flower {
+    font-size: 36px;
+  }
+
+  .flower-2 {
+    font-size: 28px;
+    top: 45px;
+    left: 45px;
+  }
+
+  .leaf {
+    font-size: 22px;
+  }
+
+  .floral-side {
+    font-size: 28px;
+    opacity: 0.25;
+  }
+
+  .floral-side-left {
+    left: 2px;
+  }
+
+  .floral-side-right {
+    right: 2px;
+  }
+
+  .floating-petal {
+    width: 7px;
+    height: 11px;
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduce animation for accessibility
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .flower,
+  .floral-side {
+    animation: none;
+  }
+
+  .floating-petal {
+    display: none;
+  }
+}
