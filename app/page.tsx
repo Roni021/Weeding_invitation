@@ -132,12 +132,12 @@ export default function Home() {
 
   const [wishes, setWishes] = useState([
     {
-      name: "Riya & Kunal",
+      name: "Sayan",
       message:
         "Wishing you both a lifetime of love, laughter and happiness.",
     },
     {
-      name: "The Nandy Family",
+      name: "Rajesh",
       message:
         "May your bond grow stronger with each passing year. Congratulations!",
     },
