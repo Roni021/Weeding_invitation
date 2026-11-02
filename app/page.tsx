@@ -137,12 +137,12 @@ export default function Home() {
         "Wishing you both a lifetime of love, laughter and happiness.",
     },
     {
-      name: "The Kapoor Family",
+      name: "The Nandy Family",
       message:
         "May your bond grow stronger with each passing year. Congratulations!",
     },
     {
-      name: "Simran",
+      name: "Saumya",
       message:
         "Two beautiful souls, one beautiful journey ahead. So happy for you both.",
     },
@@ -1435,7 +1435,7 @@ END:VCALENDAR`;
           12. FAMILY
           ====================================================== */}
 
-      <section
+      {/* <section
         id="family"
         className="section"
       >
@@ -1509,7 +1509,7 @@ END:VCALENDAR`;
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ======================================================
           13. TRAVEL
@@ -1894,78 +1894,50 @@ END:VCALENDAR`;
           19. CONTACT
           ====================================================== */}
 
-      <section
-        id="contact"
-        className="section"
+      <section id="contact" className="section">
+  <div className="container">
+    <p className="eyebrow center reveal">
+      Need Help?
+    </p>
+
+    <h2 className="section-title reveal">
+      Get In Touch
+    </h2>
+
+    <div
+      className="contact-grid"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div
+        className="contact-card reveal"
+        style={{ width: "100%", maxWidth: "400px", textAlign: "center" }}
       >
-        <div className="container">
-          <p className="eyebrow center reveal">
-            Need Help?
-          </p>
+        <h4>Contact Us</h4>
 
-          <h2 className="section-title reveal">
-            Get In Touch
-          </h2>
+        <p>+91 98765 43210</p>
 
-          <div className="contact-grid">
-            <div className="contact-card reveal-left">
-              <h4>
-                Bride&apos;s Family
-              </h4>
+        <div className="contact-actions" style={{ justifyContent: "center" }}>
+          <a href="tel:+919876543210" className="pill-btn">
+            Call
+          </a>
 
-              <p>
-                +91 98765 xxxxx
-              </p>
-
-              <div className="contact-actions">
-                <a
-                  href="tel:+919876xxxxx"
-                  className="pill-btn"
-                >
-                  Call
-                </a>
-
-                <a
-                  href="https://wa.me/919876543210"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="pill-btn"
-                >
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-
-            <div className="contact-card reveal-right">
-              <h4>
-                Groom&apos;s Family
-              </h4>
-
-              <p>
-                +91 91234 xxxxx
-              </p>
-
-              <div className="contact-actions">
-                <a
-                  href="tel:+919123xxxxx"
-                  className="pill-btn"
-                >
-                  Call
-                </a>
-
-                <a
-                  href="https://wa.me/919123456789"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="pill-btn"
-                >
-                  WhatsApp
-                </a>
-              </div>
-            </div>
-          </div>
+          <a
+            href="https://wa.me/919876543210"
+            target="_blank"
+            rel="noreferrer"
+            className="pill-btn"
+          >
+            WhatsApp
+          </a>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* ======================================================
           20. CLOSING + FOOTER

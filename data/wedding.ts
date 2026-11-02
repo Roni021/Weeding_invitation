@@ -20,7 +20,7 @@ export const weddingData = {
     dateDisplay: "25th November 2026",
     venue: "Pandua, West Bengal",
     address: " Pandua, West Bengal",
-    mapsUrl: "https://maps.app.goo.gl/bkd5zHgPvDQn3u3f7?g_st=aw",
+    mapsUrl: "https://maps.app.goo.gl/yfocWrRvnEsTqgFp8",
   },
 
   hashtag: "#AninditaMeetsRocky",
