@@ -1918,15 +1918,15 @@ END:VCALENDAR`;
       >
         <h4>Contact Us</h4>
 
-        <p>+91 98765 43210</p>
+        <p>+91 9883443563</p>
 
         <div className="contact-actions" style={{ justifyContent: "center" }}>
-          <a href="tel:+919876543210" className="pill-btn">
+          <a href="tel:+919883443563" className="pill-btn">
             Call
           </a>
 
           <a
-            href="https://wa.me/919876543210"
+            href="https://wa.me/919883443563"
             target="_blank"
             rel="noreferrer"
             className="pill-btn"
